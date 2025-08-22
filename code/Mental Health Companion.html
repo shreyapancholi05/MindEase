@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mental Health Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header">
+            <div class="headline">
+                <img src="logo-removebg-preview.jpg" alt="Logo">
+            </div>
+            
+            <!-- <div class="header-buttons">
+                <button>Sign Up</button>
+                <button>Log In</button>
+                <button onclick="openHelp()">Help</button>
+            </div> -->
+            <div class="header-buttons">
+                <button onclick="showSignUpForm()">Sign Up</button>  <!-- Updated this line -->
+                <button onclick="openHelp()">Help</button>
+            </div>
+        </div>
+
+        <nav>
+            <h1>MENTAL HEALTH COMPANION</h1>
+            <p>Your daily companion for mental wellness, offering tools for reflection, relaxation, and mindful
+                self-care.
+            </p>
+            <br>
+            <br>
+
+            <button onclick="journalEntry()">Journal</button>
+            <button onclick="guidedMeditation()">Meditation</button>
+            <button onclick="chatBot()">Chat AI</button>
+            <button onclick="moodTracker()">Mood</button>
+            <button onclick="gratitudeJournal()">Gratitude</button>
+            <button onclick="relaxationExercises()">Relax</button>
+            <button onclick="startGame()">Game</button>
+            <button onclick="exitApp()">Exit</button>
+
+        </nav>
+    </header>
+
+
+    <main>
+        <div class="inline-content">
+            <img src="frst.jpg" alt="Self-care illustration">
+            <p>
+                Taking care of mental health is just as important as taking care of physical health.
+                This platform provides simple, accessible tools to help reflect on feelings, track mood,
+                and relax your mind with guided activities.
+            </p>
+        </div>
+
+
+
+        <div id="output">Here are some relaxation exercises:<br>1. Deep breathing<br>2. Progressive muscle
+            relaxation<br>3. Visualization<br>4. Stretching exercises</div>
+        <div id="inputContainer"></div>
+
+        <div id="gameContainer" class="hidden">
+            <h2>Tic Tac Toe</h2>
+            <div id="gameBoard"></div>
+            <p id="gameStatus"></p>
+            <button onclick="resetGame()">Restart Game</button>
+        </div>
+
+        <section>
+            <h2>Key Facts</h2>
+            <ul>
+                <li>Affordable, effective and feasible strategies exist to promote, protect and restore mental health.
+                </li>
+                <li>The need for action on mental health is indisputable and urgent.</li>
+                <li>Mental health has intrinsic and instrumental value and is integral to our well-being.</li>
+                <li>Mental health is determined by a complex interplay of individual, social and structural stresses and
+                    vulnerabilities.</li>
+            </ul>
+
+            <h2>Concepts in Mental Health</h2>
+            <p>Mental health is a state of mental well-being that enables people to cope with the stresses of life,
+                realize their abilities, learn well and work well, and contribute to their community. It is an integral
+                component of health and well-being that underpins our individual and collective abilities to make
+                decisions, build relationships and shape the world we live in. Mental health is a basic human right. And
+                it is crucial to personal, community and socio-economic development.</p>
+
+            <div class="quote">“Mental health is more than the absence of mental disorders. It exists on a complex
+                continuum, which is experienced differently from one person to the next.”</div>
+            <div class="images">
+                <img src="second.jpg" alt="Mental health illustration">
+                <img src="third.jpg" alt="">
+            </div>
+
+
+            <h2>Determinants of Mental Health</h2>
+            <p>Throughout our lives, multiple individual, social and structural determinants may combine to protect or
+                undermine our mental health and shift our position on the mental health continuum.</p>
+            <p>Individual psychological and biological factors such as emotional skills, substance use and genetics can
+                make people more vulnerable to mental health problems.</p>
+            <p>Exposure to unfavorable social, economic, geopolitical and environmental circumstances – including
+                poverty, violence, inequality and environmental deprivation – also increases people’s risk of
+                experiencing mental health conditions.</p>
+
+            <h2>Mental Health Promotion and Prevention</h2>
+            <p>Promotion and prevention interventions work by identifying the individual, social and structural
+                determinants of mental health, and then intervening to reduce risks, build resilience and establish
+                supportive environments for mental health.</p>
+            <p>Reshaping the determinants of mental health often requires action beyond the health sector and so
+                promotion and prevention programmes should involve the education, labour, justice, transport,
+                environment, housing, and welfare sectors.</p>
+            <p>Suicide prevention is a global priority and included in the Sustainable Development Goals.</p>
+
+            <h2>Mental Health Care and Treatment</h2>
+            <p>In the context of national efforts to strengthen mental health, it is vital to not only protect and
+                promote the mental well-being of all, but also to address the needs of people with mental health
+                conditions.</p>
+            <p>This should be done through community-based mental health care, which is more accessible and acceptable
+                than institutional care, helps prevent human rights violations and delivers better recovery outcomes for
+                people with mental health conditions.</p>
+
+            <h2>WHO Response</h2>
+            <p>All WHO Member States are committed to implementing the “Comprehensive mental health action plan
+                2013–2030", which aims to improve mental health by strengthening effective leadership and governance,
+                providing comprehensive, integrated and responsive community-based care, implementing promotion and
+                prevention strategies, and strengthening information systems, evidence and research.</p>
+            <p>WHO continues to work nationally and internationally to provide governments and partners with the
+                strategic leadership, evidence, tools and technical support to strengthen a collective response to
+                mental health and enable a transformation towards better mental health for all.</p>
+
+            <div class="image-sec">
+                <img src="fifth.jpg" alt="Community support image">
+                <img src="fourth.jpg" alt="Community support image">
+
+            </div>
+
+        </section>
+
+
+        <section>
+            <p>Whether you're looking for a quick mindfulness exercise or a fun way to unwind with a game, the Mental
+                Health Companion is here to support you, every step of the way.</p>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 Mental Health Companion | Built with ❤️ for your well-being
+    </footer>
+
+    <script>
+        function clearInputContainer() {
+            document.getElementById('inputContainer').innerHTML = '';
+        }
+
+
+        function createInputField(placeholder, callback) {
+            const container = document.getElementById('inputContainer');
+            clearInputContainer();
+            const input = document.createElement('input');
+            input.type = 'text';
+            input.id = 'inputField';
+            input.placeholder = placeholder;
+            const button = document.createElement('button');
+            button.id = 'submitInput';
+            button.textContent = 'Submit';
+            button.onclick = function () {
+                if (input.value.trim() !== '') {
+                    callback(input.value.trim());
+                    clearInputContainer();
+                }
+            };
+            container.appendChild(input);
+            container.appendChild(button);
+            input.focus();
+        }
+
+        function journalEntry() {
+            createInputField('Write about how you\'re feeling today...', function (entry) {
+                document.getElementById('output').innerText = "Entry saved: " + entry;
+            });
+        }
+
+        // function guidedMeditation() {
+        //     clearInputContainer();
+        //     document.getElementById('output').innerText =
+        //         "Take a deep breath... Inhale for 4 seconds... Hold for 4 seconds... Exhale for 4 seconds...\nRepeat this process and focus on your breathing.";
+                
+        // }
+        function guidedMeditation() {
+        clearInputContainer();
+        document.getElementById('output').innerHTML = `
+            <h3>Choose a Meditation Technique:</h3>
+            <div class="meditation-options">
+                <button onclick="showBreathingMeditation()">1. Mindful Breathing</button>
+                <button onclick="showBodyScan()">2. Body Scan</button>
+                <button onclick="showGuidedMeditation()">3. Guided Meditation</button>
+                <button onclick="showMantraMeditation()">4. Mantra Meditation</button>
+                <button onclick="showVisualization()">5. Visualization</button>
+                <button onclick="showWalkingMeditation()">6. Walking Meditation</button>
+            </div>
+            <div id="meditationContent"></div>
+        `;
+    }
+
+    function showBreathingMeditation() {
+        document.getElementById('meditationContent').innerHTML = `
+            <h4>Mindful Breathing</h4>
+            <ol>
+                <li>Sit comfortably and focus on your breath.</li>
+                <li>Inhale deeply through your nose, hold for a second, and exhale slowly.</li>
+                <li>If your mind wanders, gently bring your attention back to your breath.</li>
+            </ol>
+            <p>Begin your practice now. Close your eyes and focus on your breathing for 1-5 minutes.</p>
+            <button onclick="startTimer(300)">Start 5 Minute Timer</button>
+        `;
+    }
+
+    function showBodyScan() {
+        document.getElementById('meditationContent').innerHTML = `
+            <h4>Body Scan Meditation</h4>
+            <ol>
+                <li>Lie down or sit comfortably.</li>
+                <li>Slowly shift your attention to different parts of your body, from head to toe.</li>
+                <li>Notice any tension and consciously relax each area.</li>
+            </ol>
+            <p>Begin by bringing awareness to your toes and slowly moving up through your body.</p>
+            <button onclick="startTimer(600)">Start 10 Minute Timer</button>
+        `;
+    }
+
+    function showGuidedMeditation() {
+        document.getElementById('meditationContent').innerHTML = `
+            <h4>Guided Meditation</h4>
+            <p>We recommend these free guided meditation resources:</p>
+            <ul>
+                <li><a href="https://www.headspace.com/" target="_blank">Headspace</a></li>
+                <li><a href="https://www.calm.com/" target="_blank">Calm</a></li>
+                <li><a href="https://insighttimer.com/" target="_blank">Insight Timer</a></li>
+            </ul>
+            <p>Or search for "guided meditation" on YouTube.</p>
+        `;
+    }
+
+    function showMantraMeditation() {
+        document.getElementById('meditationContent').innerHTML = `
+            <h4>Mantra Meditation</h4>
+            <ol>
+                <li>Choose a calming word or phrase (e.g., "peace" or "om").</li>
+                <li>Repeat it silently or aloud to focus your mind.</li>
+                <li>When distracted, gently return to your mantra.</li>
+            </ol>
+            <div>
+                <label for="mantraChoice">Choose a mantra:</label>
+                <select id="mantraChoice">
+                    <option value="peace">Peace</option>
+                    <option value="om">Om</option>
+                    <option value="love">Love</option>
+                    <option value="calm">Calm</option>
+                    <option value="custom">Your own word</option>
+                </select>
+                <input type="text" id="customMantra" placeholder="Enter your mantra" style="display:none;">
+            </div>
+            <button onclick="startMantraPractice()">Begin Mantra Practice</button>
+        `;
+        
+        document.getElementById('mantraChoice').addEventListener('change', function() {
+            const customInput = document.getElementById('customMantra');
+            customInput.style.display = this.value === 'custom' ? 'block' : 'none';
+        });
+    }
+
+    function startMantraPractice() {
+        const choice = document.getElementById('mantraChoice').value;
+        let mantra;
+        
+        if (choice === 'custom') {
+            mantra = document.getElementById('customMantra').value.trim();
+            if (!mantra) {
+                alert('Please enter your custom mantra');
+                return;
+            }
+        } else {
+            mantra = document.getElementById('mantraChoice').options[document.getElementById('mantraChoice').selectedIndex].text;
+        }
+        
+        document.getElementById('meditationContent').innerHTML = `
+            <h4>Mantra Meditation in Progress</h4>
+            <p>Repeat in your mind or aloud:</p>
+            <div style="font-size: 2em; margin: 20px 0;">${mantra}</div>
+            <p>Continue for 5-10 minutes. When your mind wanders, gently return to your mantra.</p>
+            <button onclick="startTimer(300)">Start 5 Minute Timer</button>
+        `;
+    }
+
+    function showVisualization() {
+        document.getElementById('meditationContent').innerHTML = `
+            <h4>Visualization Meditation</h4>
+            <ol>
+                <li>Close your eyes and imagine a peaceful scene, like a forest or the ocean.</li>
+                <li>Engage your senses by picturing sights, sounds, and smells.</li>
+                <li>Stay with this image for several minutes, exploring its details.</li>
+            </ol>
+            <p>Choose a visualization:</p>
+            <button onclick="startVisualization('beach')">Beach Scene</button>
+            <button onclick="startVisualization('forest')">Forest Scene</button>
+            <button onclick="startVisualization('mountain')">Mountain Scene</button>
+        `;
+    }
+
+    function startVisualization(scene) {
+        let description = '';
+        if (scene === 'beach') {
+            description = `
+                Imagine yourself on a beautiful beach. Feel the warm sand beneath you, 
+                hear the waves gently rolling in, smell the salty ocean air. 
+                Watch the sunlight sparkle on the water and feel a gentle breeze.
+            `;
+        } else if (scene === 'forest') {
+            description = `
+                Picture yourself in a peaceful forest. Notice the tall trees around you, 
+                the dappled sunlight coming through the leaves. Hear birds singing softly 
+                and the rustle of leaves in the wind. Smell the fresh, earthy forest air.
+            `;
+        } else {
+            description = `
+                Visualize yourself on a mountain top. See the breathtaking view of valleys below, 
+                feel the crisp, clean air. Notice the quiet and stillness all around you, 
+                with only the sound of wind gently blowing.
+            `;
+        }
+        
+        document.getElementById('meditationContent').innerHTML = `
+            <h4>Visualization Meditation</h4>
+            <p>${description}</p>
+            <p>Close your eyes and maintain this visualization for several minutes.</p>
+            <button onclick="startTimer(300)">Start 5 Minute Timer</button>
+        `;
+    }
+
+    function showWalkingMeditation() {
+        document.getElementById('meditationContent').innerHTML = `
+            <h4>Walking Meditation</h4>
+            <ol>
+                <li>Walk slowly and focus on each step.</li>
+                <li>Notice how your feet move and the sensations in your body.</li>
+                <li>This is great if sitting meditation feels difficult.</li>
+                <li>Pay attention to the lifting, moving, and placing of each foot.</li>
+                <li>If your mind wanders, gently return to focusing on your steps.</li>
+            </ol>
+            <p>Find a quiet place where you can walk slowly back and forth for 5-10 minutes.</p>
+            <button onclick="startTimer(300)">Start 5 Minute Timer</button>
+        `;
+    }
+
+    function startTimer(seconds) {
+        const timerDisplay = document.createElement('div');
+        timerDisplay.id = 'timerDisplay';
+        timerDisplay.style.fontSize = '2em';
+        timerDisplay.style.margin = '20px 0';
+        
+        const content = document.getElementById('meditationContent');
+        content.appendChild(timerDisplay);
+        
+        let remaining = seconds;
+        updateTimerDisplay();
+        
+        const timer = setInterval(() => {
+            remaining--;
+            updateTimerDisplay();
+            
+            if (remaining <= 0) {
+                clearInterval(timer);
+                timerDisplay.innerHTML = 'Time is up! Take a moment to notice how you feel.';
+                const chime = new Audio('https://www.soundjay.com/buttons/sounds/button-09.mp3');
+                chime.play().catch(e => console.log('Audio play failed:', e));
+            }
+        }, 1000);
+        
+        function updateTimerDisplay() {
+            const mins = Math.floor(remaining / 60);
+            const secs = remaining % 60;
+            timerDisplay.textContent = `${mins}:${secs < 10 ? '0' : ''}${secs}`;
+        }
+    }
+
+
+
+
+
+        function chatBot() {
+            window.open("https://www.perplexity.ai", "_blank");
+        }
+
+        function moodTracker() {
+            createInputField('How are you feeling today? (happy/sad/anxious/neutral)', function (mood) {
+                mood = mood.toLowerCase();
+                let output = "";
+                if (mood === "happy") {
+                    output = "That's wonderful! You're doing great! Keep going!";
+                } else if (mood === "sad" || mood === "anxious") {
+                    output = "I'm here for you. Try some deep breathing exercises.";
+                } else if (mood === "neutral") {
+                    output = "Thanks for sharing. Here’s a tip: Go for a short walk to refresh your mind.";
+                } else {
+                    output = "I'm not sure I understand, but I'm here to help!";
+                }
+                document.getElementById('output').innerText = output;
+            });
+        }
+
+        function gratitudeJournal() {
+            createInputField('List three things you\'re grateful for today:', function (gratitude) {
+                document.getElementById('output').innerText = "Gratitude saved: " + gratitude;
+            });
+        }
+
+       
+        function relaxationExercises() {
+    clearInputContainer();
+    document.getElementById('output').innerText =
+        "Here are some relaxation exercises:\n" +
+        "1. Deep breathing\n" +
+        "2. Progressive muscle relaxation\n" +
+        "3. Visualization\n" +
+        "4. Stretching exercises\n" +
+        "5. Streaming Bliss: Dive into a gripping movie or binge-watch a series on Netflix. Whether it's a mind-bending thriller or a comforting comedy, the right content can be an instant stress-reliever.\n" +
+        "6. Gaming Escape: A good video game can transport you to another world, whether you're exploring open landscapes, strategizing battles, or just enjoying casual puzzle games.\n" +
+        "7. Sweet Indulgence: Chocolate isn't just delicious—it can actually boost your mood thanks to its ability to trigger feel-good chemicals in your brain. So go ahead, have a piece (or a whole bar, I won't judge).\n" +
+        "8. Music Therapy: Put on your favorite tunes, whether they're calming melodies or upbeat rhythms. A good playlist can set the perfect tone for relaxation.\n" +
+        "9. Mindful Moments: If you want deep relaxation, try meditation, guided breathing exercises, or gentle yoga. These practices can help ease tension and restore calm.\n" +
+        "10. Creative Outlets: If you feel up for it, sketching, journaling, or even cooking can be a relaxing way to express yourself.\n" +
+        "11. Comfort Rituals: A warm cup of tea, cozy blankets, and dim lighting can do wonders. Sometimes, the simplest things create the best atmosphere.";
+}
+
+
+
+
+
+function exitApp() {
+    // 1. Create a full-screen goodbye overlay
+    const overlay = document.createElement('div');
+    overlay.style.cssText = `
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: white;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        z-index: 9999;
+        font-family: Arial, sans-serif;
+        text-align: center;
+    `;
+
+    overlay.innerHTML = `
+        <h1 style="color: #4a6fa5;">Goodbye, Friend! ❤️</h1>
+        <p style="font-size: 1.2em;">Take care. You are not alone.</p>
+        <p>The page will close...</p>
+    `;
+
+    // 2. Hide all other content
+    document.body.innerHTML = ''; // Clear the entire page
+    document.body.appendChild(overlay);
+
+    // 3. Attempt to close after 3 seconds
+    setTimeout(() => {
+        try {
+            window.close(); // Will ONLY work if the page was opened via JavaScript
+        } catch (e) {
+            overlay.innerHTML += `
+                <p style="margin-top: 20px; color: #666;">
+                    (Could not close automatically. Please close this tab manually.)
+                </p>
+            `;
+        }
+    }, 3000);
+}
+
+
+function openHelp() {
+    window.open("https://www.pib.gov.in/pressreleaseshare.aspx?prid=1652240", "_blank");
+}
+
+
+
+
+
+
+        let currentPlayer = 'X';
+        let board = ['', '', '', '', '', '', '', '', ''];
+        let gameActive = true;
+        const winningCombinations = [
+            [0, 1, 2], [3, 4, 5], [6, 7, 8],
+            [0, 3, 6], [1, 4, 7], [2, 5, 8],
+            [0, 4, 8], [2, 4, 6]
+        ];
+
+        function startGame() {
+            clearInputContainer();
+            document.getElementById('gameContainer').classList.remove('hidden');
+            document.getElementById('output').innerText = '';
+            const gameBoard = document.getElementById('gameBoard');
+            gameBoard.innerHTML = '';
+            board = ['', '', '', '', '', '', '', '', ''];
+            currentPlayer = 'X';
+            gameActive = true;
+            document.getElementById('gameStatus').innerText = "Your turn (X)";
+            for (let i = 0; i < 9; i++) {
+                const cell = document.createElement('div');
+                cell.classList.add('cell');
+                cell.dataset.index = i;
+                cell.addEventListener('click', handleCellClick);
+                gameBoard.appendChild(cell);
+            }
+        }
+
+        function handleCellClick(event) {
+            const index = event.target.dataset.index;
+            if (!gameActive || board[index] !== '') return;
+            board[index] = currentPlayer;
+            event.target.innerText = currentPlayer;
+            if (checkWin()) {
+                document.getElementById('gameStatus').innerText = `${currentPlayer} wins! 🎉`;
+                gameActive = false;
+                return;
+            }
+            if (board.every(cell => cell !== '')) {
+                document.getElementById('gameStatus').innerText = "It's a draw!";
+                gameActive = false;
+                return;
+            }
+            currentPlayer = (currentPlayer === 'X') ? 'O' : 'X';
+            document.getElementById('gameStatus').innerText = `Player ${currentPlayer}'s turn`;
+            if (currentPlayer === 'O') {
+                setTimeout(computerMove, 500);
+            }
+        }
+
+        function computerMove() {
+            if (!gameActive) return;
+            let available = board.map((val, idx) => val === '' ? idx : null).filter(v => v !== null);
+            let choice = available[Math.floor(Math.random() * available.length)];
+            board[choice] = 'O';
+            const cells = document.querySelectorAll('.cell');
+            cells[choice].innerText = 'O';
+            if (checkWin()) {
+                document.getElementById('gameStatus').innerText = `O wins! (Computer)`;
+                gameActive = false;
+                return;
+            }
+            if (board.every(cell => cell !== '')) {
+                document.getElementById('gameStatus').innerText = "It's a draw!";
+                gameActive = false;
+                return;
+            }
+            currentPlayer = 'X';
+            document.getElementById('gameStatus').innerText = "Your turn (X)";
+        }
+
+        function checkWin() {
+            return winningCombinations.some(combo => {
+                return board[combo[0]] !== '' &&
+                    board[combo[0]] === board[combo[1]] &&
+                    board[combo[1]] === board[combo[2]];
+            });
+        }
+
+        function resetGame() {
+            startGame();
+        }
+    </script>
+
+    <script>
+
+        if ('WebSocket' in window) {
+            (function () {
+                function refreshCSS() {
+                    var sheets = [].slice.call(document.getElementsByTagName("link"));
+                    var head = document.getElementsByTagName("head")[0];
+                    for (var i = 0; i < sheets.length; ++i) {
+                        var elem = sheets[i];
+                        var parent = elem.parentElement || head;
+                        parent.removeChild(elem);
+                        var rel = elem.rel;
+                        if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+                            var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+                            elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+                        }
+                        parent.appendChild(elem);
+                    }
+                }
+                var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+                var address = protocol + window.location.host + window.location.pathname + '/ws';
+                var socket = new WebSocket(address);
+                socket.onmessage = function (msg) {
+                    if (msg.data == 'reload') window.location.reload();
+                    else if (msg.data == 'refreshcss') refreshCSS();
+                };
+                if (sessionStorage && !sessionStorage.getItem('IsThisFirstTime_Log_From_LiveServer')) {
+                    console.log('Live reload enabled.');
+                    sessionStorage.setItem('IsThisFirstTime_Log_From_LiveServer', true);
+                }
+            })();
+        }
+        else {
+            console.error('Upgrade your browser. This Browser is NOT supported WebSocket for Live-Reloading.');
+        }
+
+
+        // Sign Up Form Functions
+function showSignUpForm() {
+    document.getElementById('signupModal').style.display = 'block';
+}
+
+function hideSignUpForm() {
+    document.getElementById('signupModal').style.display = 'none';
+}
+
+function showLoginForm() {
+    hideSignUpForm();
+    // You can add login form logic here later
+    alert('Login form will appear here');
+}
+
+// Handle form submission
+document.getElementById('signupForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    const password = document.getElementById('password').value;
+    const confirmPassword = document.getElementById('confirm-password').value;
+    
+    if (password !== confirmPassword) {
+        alert('Passwords do not match!');
+        return;
+    }
+    
+    // Here you would typically send the data to a server
+    // For now, we'll just show a success message
+    alert('Account created successfully! (This is a demo)');
+    hideSignUpForm();
+    
+    // Clear the form
+    this.reset();
+});
+
+// Close modal when clicking outside of it
+window.onclick = function(event) {
+    const modal = document.getElementById('signupModal');
+    if (event.target == modal) {
+        hideSignUpForm();
+    }
+}
+    </script>
+<!-- hdsgajdgjag -->
+
+<div id="signupModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="hideSignUpForm()">&times;</span>
+        <h2>Create Your Account</h2>
+        <form id="signupForm">
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required minlength="6">
+            </div>
+            <div class="form-group">
+                <label for="confirm-password">Confirm Password</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit" class="submit-btn">Sign Up</button>
+        </form>
+        <p class="login-link">Already have an account? <a href="#" onclick="showLoginForm()">Log in</a></p>
+    </div>
+</div>
+</body>
+
+</html>
