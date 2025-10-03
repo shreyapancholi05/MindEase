@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Mental Health Companion</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <div class="header">
+            <div class="headline">
+                <img src="logo-removebg-preview.jpg" alt="Logo">
+            </div>
+
+
+            <div class="header-buttons">
+                <button onclick="openHelp()">Help</button>
+            </div>
+        </div>
+
+        <nav>
+            <h1>MENTAL HEALTH COMPANION</h1>
+            <p>Your daily companion for mental wellness, offering tools for reflection, relaxation, and mindful
+                self-care.
+            </p>
+            <br>
+            <br>
+
+            <button onclick="journalEntry()">Journal</button>
+            <button onclick="viewJournalHistory()">View Journal History</button>
+            <button onclick="guidedMeditation()">Meditation</button>
+            <button onclick="moodTracker()">Mood</button>
+            <button onclick="gratitudeJournal()">Gratitude</button>
+            <button onclick="startGame()">Stress Buster</button>
+
+        </nav>
+    </header>
+
+
+    <main>
+        <div class="inline-content">
+            <img src="frst.jpg" alt="Self-care illustration">
+            <p id="quoteText"></p>
+        </div>
+
+
+
+        <div id="output">Here are some relaxation exercises:<br>1. Deep breathing<br>2. Progressive muscle
+            relaxation<br>3. Visualization<br>4. Stretching exercises</div>
+        <div id="inputContainer"></div>
+
+        <div id="gameContainer" class="hidden">
+            <h2>Tic Tac Toe</h2>
+            <div id="gameBoard"></div>
+            <p id="gameStatus"></p>
+            <button onclick="resetGame()" class="restart-btn">Restart Game</button>
+        </div>
+
+        <section>
+            <h2>Key Facts</h2>
+            <ul>
+                <li>Affordable, effective and feasible strategies exist to promote, protect and restore mental health.
+                </li>
+                <li>The need for action on mental health is indisputable and urgent.</li>
+                <li>Mental health has intrinsic and instrumental value and is integral to our well-being.</li>
+                <li>Mental health is determined by a complex interplay of individual, social and structural stresses and
+                    vulnerabilities.</li>
+            </ul>
+
+            <h2>Concepts in Mental Health</h2>
+            <p>Mental health is a state of mental well-being that enables people to cope with the stresses of life,
+                realize their abilities, learn well and work well, and contribute to their community. It is an integral
+                component of health and well-being that underpins our individual and collective abilities to make
+                decisions, build relationships and shape the world we live in. Mental health is a basic human right. And
+                it is crucial to personal, community and socio-economic development.</p>
+
+            <div class="quote">“Mental health is more than the absence of mental disorders. It exists on a complex
+                continuum, which is experienced differently from one person to the next.”</div>
+            <div class="images">
+                <img src="second.jpg" alt="Mental health illustration">
+                <img src="third.jpg" alt="">
+            </div>
+
+
+            <h2>Determinants of Mental Health</h2>
+            <p>Throughout our lives, multiple individual, social and structural determinants may combine to protect or
+                undermine our mental health and shift our position on the mental health continuum.</p>
+            <p>Individual psychological and biological factors such as emotional skills, substance use and genetics can
+                make people more vulnerable to mental health problems.</p>
+            <p>Exposure to unfavorable social, economic, geopolitical and environmental circumstances – including
+                poverty, violence, inequality and environmental deprivation – also increases people’s risk of
+                experiencing mental health conditions.</p>
+
+            <h2>Mental Health Promotion and Prevention</h2>
+            <p>Promotion and prevention interventions work by identifying the individual, social and structural
+                determinants of mental health, and then intervening to reduce risks, build resilience and establish
+                supportive environments for mental health.</p>
+            <p>Reshaping the determinants of mental health often requires action beyond the health sector and so
+                promotion and prevention programmes should involve the education, labour, justice, transport,
+                environment, housing, and welfare sectors.</p>
+            <p>Suicide prevention is a global priority and included in the Sustainable Development Goals.</p>
+
+            <h2>Mental Health Care and Treatment</h2>
+            <p>In the context of national efforts to strengthen mental health, it is vital to not only protect and
+                promote the mental well-being of all, but also to address the needs of people with mental health
+                conditions.</p>
+            <p>This should be done through community-based mental health care, which is more accessible and acceptable
+                than institutional care, helps prevent human rights violations and delivers better recovery outcomes for
+                people with mental health conditions.</p>
+
+            <h2>WHO Response</h2>
+            <p>All WHO Member States are committed to implementing the “Comprehensive mental health action plan
+                2013–2030", which aims to improve mental health by strengthening effective leadership and governance,
+                providing comprehensive, integrated and responsive community-based care, implementing promotion and
+                prevention strategies, and strengthening information systems, evidence and research.</p>
+            <p>WHO continues to work nationally and internationally to provide governments and partners with the
+                strategic leadership, evidence, tools and technical support to strengthen a collective response to
+                mental health and enable a transformation towards better mental health for all.</p>
+
+            <div class="image-sec">
+                <img src="fifth.jpg" alt="Community support image">
+                <img src="fourth.jpg" alt="Community support image">
+
+            </div>
+
+        </section>
+
+
+        <section>
+            <p>Whether you're looking for a quick mindfulness exercise or a fun way to unwind with a game, the Mental
+                Health Companion is here to support you, every step of the way.</p>
+        </section>
+    </main>
+
+    <footer>
+        © 2025 Mental Health Companion | Built with ❤️ for your well-being
+    </footer>
+    <script src="script.js"></script>
+</body>
+
+</html>
